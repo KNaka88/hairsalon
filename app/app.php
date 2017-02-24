@@ -11,17 +11,20 @@
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
-
-    $app['debug'] = true;
-
     $app = new Silex\Application();
     $app->register(
        new Silex\Provider\TwigServiceProvider(),
        array('twig.path' => __DIR__.'/../views')
     );
 
+    $app['debug'] = true;
     $app->get("/", function() use ($app){
-        return $app['twig']->render('index.html.twig');
+        return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
     });
 
+    $app->post("/add-stylist", function() use ($app) {
+        $new_stylist = new Stylist($_POST['stylist_name']);
+        $new_stylist->save();
+        return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
+    });
     return $app;

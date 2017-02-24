@@ -10,7 +10,27 @@
     </header>
     <main>
       <div class="container">
-        <h1>Hello World</h1>
+        <h1>Manege Stylists</h1>
+
+        <form action="/add-stylist" method="post">
+          <div class="form-group">
+            <label for="stylist_name">Type Stylist Name</label>
+            <input type="text" class="form-control" name="stylist_name" id="stylist_name" placeholder="Name" />
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Add</button>
+        </form>
+
+        <h2>Current Stylists</h2>
+        {% if stylists is not empty %}
+          <ul>
+            {% for stylist in stylists %}
+              <li>{{ stylist.getStylistName }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+        <p>No stylists</p>
+        {% endif %}
+
       </div>
     </main>
     <footer>
