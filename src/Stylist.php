@@ -28,12 +28,23 @@
 
         function save()
         {
+            $GLOBALS['DB']->exec("INSERT INTO stylists(stylist_name) VALUES ('{$this->getStylistName()}');");
 
+            $this->stylist_id = $GLOBALS['DB']->lastInsertId();
         }
 
-        function getAll()
+        static function getAll()
         {
+            $returned_stylists = $GLOBALS['DB']->query("SELECT * FROM stylists;");
+            $stylists = array();
 
+            foreach($returned_stylists as $stylist){
+              $stylist_name = $stylist['stylist_name'];
+              $stylist_id = $stylist['stylist_id'];
+              $new_stylist = new Stylist($stylist_name, $stylist_id);
+              array_push($stylists, $new_stylist);
+            }
+            return $stylists;
         }
 
         function deleteAll()

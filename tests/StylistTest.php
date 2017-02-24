@@ -63,7 +63,19 @@
          //Desc: check intance of Stylist saved on hair_salon_test database
          //Input:  "Monica"
          //Output: "Monica"
+         function test_save()
+          {
+              //Arrange
+              $stylist_name = "Monica";
+              $test_stylist = new Stylist($stylist_name);
 
+              //Act
+              $test_stylist->save();
+
+              //Assert
+              $result = Stylist::getAll();
+              $this->assertEquals($test_stylist, $result[0]);
+          }
 
 
         ////Test 4: test_getAll
