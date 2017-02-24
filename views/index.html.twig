@@ -11,7 +11,6 @@
     <main>
       <div class="container">
         <h1>Manege Stylists</h1>
-
         <form action="/" method="post">
           <div class="form-group">
             <label for="stylist_name">Type Stylist Name</label>
@@ -27,15 +26,15 @@
               <li>
                 <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}">{{ stylist.getStylistName }}</a>
                 <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/edit"><button class="btn btn-warning">Edit</button></a>
-
                 <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/deleted"><button class="btn btn-danger">Delete</button></a>
               </li>
             {% endfor %}
           </ul>
+          <a href="/deleteall"><button class="btn btn-danger">Delete All</button></a>
         {% else %}
         <p>No stylists</p>
         {% endif %}
-        <a href="/deleteall"><button class="btn btn-danger">Delete All</button></a>
+
 
       </div>
     </main>

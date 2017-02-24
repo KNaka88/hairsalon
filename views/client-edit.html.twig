@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Hair Salon Management Page</title>
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+      <div class="container">
+        <h1>Edit {{ client.getClientName}}</h1>
+
+        <form action="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/client/{{client.getClientName}}-{{client.getClientId}}/edit" method="post">
+          <input name="_method" type="hidden" value="patch">
+          <label for="change_client_name">Change the name:</label>
+          <input id="change_client_name" name="change_client_name" type="text">
+          <button type="submit">Update</button>
+        </form>
+      </div>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
