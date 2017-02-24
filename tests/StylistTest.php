@@ -150,11 +150,17 @@
         //desc: update the stylist_name
         //Input:  "Monica", "Tom"
         //Output: "Monica (object)"
+        function test_update()
+        {
+            // Arrange
+            $stylist_name = "Monica";
+            $new_stylist_name = "Tom";
+            $test_stylist = new Stylist($stylist_name);
 
+            // Act
+            $test_stylist->update($new_stylist_name);
 
-        ///Test 8 test_update()
-        //desc: update the stylist_name
-        //Input:  "Monica", "Tom"
-        //Output: "Tom"
-
+            // Assert
+            $this->assertEquals($new_stylist_name, $test_stylist->getStylistName());
+        }
 }

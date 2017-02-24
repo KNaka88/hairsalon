@@ -52,4 +52,9 @@
         {
 
         }
+
+        function delete()
+        {
+
+        }
     }
