@@ -169,21 +169,26 @@
       //   //desc: update the client_name
       //   //Input:  "Monica", "Tom"
       //   //Output: "Monica (object)"
-      //   function test_update()
-      //   {
-      //       // Arrange
-      //       $client_name = "Monica";
-      //       $new_client_name = "Tom";
-      //       $test_client = new Client($client_name, 1);
-       //
-      //       // Act
-      //       $test_client->update($new_client_name);
-       //
-      //       // Assert
-      //       $this->assertEquals($new_client_name, $test_client->getClientName());
-      //   }
-       //
-       //
+        function test_update()
+        {
+            // Arrange
+            $stylist_name = "Monica";
+            $test_stylist = new Stylist($stylist_name);
+            $test_stylist->save();
+
+            $client_name = "John";
+            $stylist_id = $test_stylist->getStylistId();
+            $new_client_name = "Tom";
+            $test_client = new Client($client_name, $stylist_id);
+
+            // Act
+            $test_client->update($new_client_name);
+
+            // Assert
+            $this->assertEquals($new_client_name, $test_client->getClientName());
+        }
+
+
       //   ///Test 8 test_delete()
       //   //desc: delete client_name from database
       //   //Input:  "John", "Paul"
