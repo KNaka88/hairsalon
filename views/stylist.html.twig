@@ -3,10 +3,28 @@
   <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta charset="utf-8">
-    <title>Stylist</title>
+    <title>Stylist: {{stylist.getStylistName}}</title>
   </head>
   <body>
-    <h1>Hello World</h1>
+    <h1>{{stylist.getStylistName}}'s Clients:</h1>
+
+    {% if clients is not empty %}
+      <ul>
+      {% for client in clients %}
+        <li>{{client.getClientName}}</li>
+      {%endfor %}
+      </ul>
+    {% else %}
+      <p>{{stylist.getStylistName}} does not have any clients yet... :(</p>
+    {% endif %}
+
+    <form action="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}" method="post">
+      <div class="form-group">
+        <label for="client_name">Type Client's Name</label>
+        <input type="text" class="form-control" name="client_name" id="client_name" placeholder="Client's Name" />
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Add</button>
+    </form>
 
   </body>
 </html>
