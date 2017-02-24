@@ -104,6 +104,23 @@
         //Desc: delete all records from stylist table
         //Input:  "Monica", "Tom"
         //Output: ""
+        function test_deleteAll()
+        {
+            // Arrange
+            $stylist_name1 = "Monica";
+            $stylist_name2 = "Tom";
+            $test_stylist1 = new Stylist($stylist_name1);
+            $test_stylist1->save();
+            $test_stylist2= new Stylist($stylist_name2);
+            $test_stylist2->save();
+
+            //Act
+            Stylist::deleteAll();
+            $result = Stylist::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
 
 
 
