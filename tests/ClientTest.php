@@ -89,7 +89,6 @@
         function test_getAll()
         {
             // Arrange
-            //Arrange
             $stylist_name = "Monica";
             $test_stylist = new Stylist($stylist_name);
             $test_stylist->save();
@@ -111,29 +110,34 @@
         }
 
 
-      //  ///Test 5: test_deleteAll()    *don't forget tearDown!!
-      //   //Desc: delete all records from client table
-      //   //Input:  "Monica", "Tom"
-      //   //Output: ""
-      //   function test_deleteAll()
-      //   {
-      //       // Arrange
-      //       $client_name1 = "Monica";
-      //       $client_name2 = "Tom";
-      //       $test_client1 = new Client($client_name1, 1);
-      //       $test_client1->save();
-      //       $test_client2= new Client($client_name2, 2);
-      //       $test_client2->save();
-       //
-      //       //Act
-      //       Client::deleteAll();
-      //       $result = Client::getAll();
-       //
-      //       //Assert
-      //       $this->assertEquals([], $result);
-      //   }
-       //
-       //
+       ///Test 5: test_deleteAll()    *don't forget tearDown!!
+        //Desc: delete all records from client table
+        //Input:  "Monica", "Tom"
+        //Output: ""
+        function test_deleteAll()
+        {
+            // Arrange
+            $stylist_name = "Monica";
+            $test_stylist = new Stylist($stylist_name);
+            $test_stylist->save();
+
+            $client_name1 = "John";
+            $client_name2 = "Erika";
+            $stylist_id = $test_stylist->getStylistId();
+            $test_client1 = new Client($client_name1, $stylist_id);
+            $test_client1->save();
+            $test_client2= new Client($client_name2, $stylist_id);
+            $test_client2->save();
+
+            //Act
+            Client::deleteAll();
+            $result = Client::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
+
+
       //   ///Test 6 test_find()
       //   //desc: find matched indexes by using id
       //   //Input:  "Monica", "Tom"
