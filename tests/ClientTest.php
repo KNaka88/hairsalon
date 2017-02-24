@@ -189,27 +189,31 @@
         }
 
 
-      //   ///Test 8 test_delete()
-      //   //desc: delete client_name from database
-      //   //Input:  "John", "Paul"
-      //   //Output: "Paul"
-      //   function testDelete()
-      //   {
-       //
-      //       //Arrange
-      //       $client_name = "John";
-      //       $test_client = new Client($client_name, 1);
-      //       $test_client->save();
-       //
-      //       $client_name2 = "Paul";
-      //       $test_client2 = new Client($client_name2, 2);
-      //       $test_client2->save();
-       //
-      //       //Act
-      //       $test_client->delete();
-       //
-      //       //Assert
-      //       $this->assertEquals( [$test_client2], Client::getAll());
-      //   }
+        ///Test 8 test_delete()
+        //desc: delete client_name from database
+        //Input:  "John", "Paul"
+        //Output: "Paul"
+        function testDelete()
+        {
+
+            //Arrange
+            $stylist_name = "Monica";
+            $test_stylist = new Stylist($stylist_name);
+            $test_stylist->save();
+
+            $client_name1 = "John";
+            $client_name2 = "Erika";
+            $stylist_id = $test_stylist->getStylistId();
+            $test_client1 = new Client($client_name1, $stylist_id);
+            $test_client1->save();
+            $test_client2= new Client($client_name2, $stylist_id);
+            $test_client2->save();
+
+            //Act
+            $test_client1->delete();
+
+            //Assert
+            $this->assertEquals( [$test_client2], Client::getAll());
+        }
 
 }
