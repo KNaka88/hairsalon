@@ -123,6 +123,22 @@
         //desc: find matched indexes by using id
         //Input:  "Monica", "Tom"
         //Output: "Monica (object)"
+        function test_find()
+        {
+            //Arrange
+            $client_name1 = "Monica";
+            $client_name2 = "Tom";
+            $test_client1 = new Client($client_name1);
+            $test_client2 = new Client($client_name2);
+            $test_client1->save();
+            $test_client2->save();
+
+            //Act
+            $result = Client::find($test_client1->getClientId());
+
+            //Assert
+            $this->assertEquals($test_client1, $result);
+        }
 
 
         ///Test 7 test_update()
