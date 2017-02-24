@@ -128,6 +128,22 @@
         //desc: find matched indexes by using id
         //Input:  "Monica", "Tom"
         //Output: "Monica (object)"
+        function test_find()
+        {
+            //Arrange
+            $stylist_name1 = "Monica";
+            $stylist_name2 = "Tom";
+            $test_stylist1 = new Stylist($stylist_name1);
+            $test_stylist2 = new Stylist($stylist_name2);
+            $test_stylist1->save();
+            $test_stylist2->save();
+
+            //Act
+            $result = Stylist::find($test_stylist1->getStylistId());
+
+            //Assert
+            $this->assertEquals($test_stylist1, $result);
+        }
 
 
         ///Test 7 test_update()

@@ -5,26 +5,31 @@
         private $stylist_name;
         private $stylist_id;
 
+
         function __construct ($stylist_name, $stylist_id = null)
         {
             $this->stylist_name = $stylist_name;
             $this->stylist_id = $stylist_id;
         }
 
+
         function getStylistName()
         {
             return $this->stylist_name;
         }
+
 
         function getStylistId()
         {
             return $this->stylist_id;
         }
 
+
         function setStylistName($new_stylist_name)
         {
             $this->stylist_name = $new_stylist_name;
         }
+
 
         function save()
         {
@@ -32,6 +37,7 @@
 
             $this->stylist_id = $GLOBALS['DB']->lastInsertId();
         }
+
 
         static function getAll()
         {
@@ -47,15 +53,21 @@
             return $stylists;
         }
 
+
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM stylists;");
         }
 
+
         static function find($search_id)
         {
-
-
+            $stylist = $GLOBALS['DB']->query("SELECT * FROM stylists WHERE stylist_id = {$search_id};");
+            foreach($stylist as $stylist_result){
+                $stylist_name_result = $stylist_result['stylist_name'];
+                $stylist_id_result = $stylist_result['stylist_id'];
+                return new Stylist($stylist_name_result, $stylist_id_result);
+            }
         }
 
         function update()
