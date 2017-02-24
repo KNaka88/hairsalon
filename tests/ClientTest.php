@@ -164,5 +164,23 @@
         //desc: delete client_name from database
         //Input:  "John", "Paul"
         //Output: "Paul"
+        function testDelete()
+        {
+
+            //Arrange
+            $client_name = "John";
+            $test_client = new Client($client_name);
+            $test_client->save();
+
+            $client_name2 = "Paul";
+            $test_client2 = new Client($client_name2);
+            $test_client2->save();
+
+            //Act
+            $test_client->delete();
+
+            //Assert
+            $this->assertEquals( [$test_client2], Client::getAll());
+        }
 
 }

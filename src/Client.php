@@ -71,6 +71,6 @@
 
         function delete()
         {
-
+             $GLOBALS['DB']->exec("DELETE FROM clients WHERE client_id = {$this->getClientId()};");
         }
   }
