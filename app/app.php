@@ -29,12 +29,9 @@
     });
 
 
-    $app->get("/{stylist}/clients", function($stylist) use ($app) {
-      $stylist_name = $stylist;
-
-        return $app['twig']->render('stylist.html.twig', array('restaurants' => Restaurant::getMatch($id), 'cuisine' => Cuisine::getCuisine($cuisine_id), 'cuisine_id'=> $cuisine_id));
-
-        return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
+    $app->get("/stylist/{stylist}-{id}", function($stylist, $id) use ($app) {
+        $stylist = Stylist::find($id);
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
     return $app;

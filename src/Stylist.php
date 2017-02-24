@@ -89,6 +89,6 @@
                 $new_client = new Client($client_name, $stylist_id, $client_id);
                 array_push($clients, $new_client);
             }
-            return $tasks;
+            return $clients;
         }
     }
