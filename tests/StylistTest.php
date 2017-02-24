@@ -23,6 +23,21 @@
         //Desc: check class Stylist is made and can call name by getStylistName()
         //Input: "Monica"
         //Output: "Monica"
+        function test_getStylistName()
+       {
+           //Arrange
+           $stylist_name = "Monica";
+           $test_stylist = new Stylist($stylist_name);
+
+           //Act
+           $result = $test_stylist->getStylistName();
+
+           //Assert
+
+           $this->assertEquals($stylist_name, $result);
+       }
+
+
 
        ////Test 2: test_getStylistId
        //Desc: check class Stylist is made and check getStylistId() is numeric or not
