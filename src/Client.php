@@ -3,11 +3,13 @@
     class Client
     {
         private $client_name;
+        private $stylist_id;
         private $client_id;
 
-        function __construct ($client_name, $client_id = null)
+        function __construct ($client_name, $stylist_id, $client_id = null)
         {
             $this->client_name = $client_name;
+            $this->stylist_id = $stylist_id;
             $this->client_id = $client_id;
         }
 
@@ -73,4 +75,5 @@
         {
              $GLOBALS['DB']->exec("DELETE FROM clients WHERE client_id = {$this->getClientId()};");
         }
+
   }

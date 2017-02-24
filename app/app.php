@@ -27,4 +27,14 @@
         $new_stylist->save();
         return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
     });
+
+
+    $app->get("/{stylist}/clients", function($stylist) use ($app) {
+      $stylist_name = $stylist;
+
+        return $app['twig']->render('stylist.html.twig', array('restaurants' => Restaurant::getMatch($id), 'cuisine' => Cuisine::getCuisine($cuisine_id), 'cuisine_id'=> $cuisine_id));
+
+        return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
+    });
+
     return $app;

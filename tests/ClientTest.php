@@ -6,6 +6,7 @@
     */
 
     require_once "src/Client.php";
+    require_once "src/Stylist.php";
 
     $server = 'mysql:host=localhost:8889;dbname=hair_salon_test';
     $username = 'root';
@@ -17,6 +18,7 @@
         protected function tearDown()
          {
            Client::deleteAll();
+           Stylist::deleteAll();
          }
 
         ///Test 1: test_getClientName
@@ -26,7 +28,8 @@
         function test_getClientName()
          {
              //Arrange
-             $client_name = "Monica";
+
+             $client_name = "John";
              $test_client = new Client($client_name);
 
              //Act
@@ -53,6 +56,7 @@
                //Assert
                $this->assertEquals(true, is_numeric($result));
            }
+
 
 
          ////Test 3: test_save
