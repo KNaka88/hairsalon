@@ -20,41 +20,41 @@
            Client::deleteAll();
            Stylist::deleteAll();
          }
-        // 
-        // ///Test 1: test_getClientName
-        // //Desc: check class Client is made and can call name by getClientName()
-        // //Input: "Monica"
-        // //Output: "Monica"
-        // function test_getClientName()
-        //  {
-        //      //Arrange
-        //      $client_name = "John";
-        //      $test_client = new Client($client_name, 1);
-        //
-        //      //Act
-        //      $result = $test_client->getClientName();
-        //
-        //      //Assert
-        //     $this->assertEquals($client_name, $result);
-        //  }
-        //
-        //  ////Test 2: test_getClientId
-        //  //Desc: check class Client is made and check getClientId() is numeric or not
-        //  //Input: "Monica", "1"
-        //  //Output: true
-        //  function test_getClientId()
-        //    {
-        //        //Arrange
-        //        $client_name = "Monica";
-        //        $client_id = 1;
-        //        $test_client = new Client($client_name, 1, $client_id);
-        //
-        //        //Act
-        //        $result = $test_client->getClientId();
-        //
-        //        //Assert
-        //        $this->assertEquals(true, is_numeric($result));
-        //    }
+
+        ///Test 1: test_getClientName
+        //Desc: check class Client is made and can call name by getClientName()
+        //Input: "Monica"
+        //Output: "Monica"
+        function test_getClientName()
+         {
+             //Arrange
+             $client_name = "John";
+             $test_client = new Client($client_name, 1);
+
+             //Act
+             $result = $test_client->getClientName();
+
+             //Assert
+            $this->assertEquals($client_name, $result);
+         }
+
+         ////Test 2: test_getClientId
+         //Desc: check class Client is made and check getClientId() is numeric or not
+         //Input: "Monica", "1"
+         //Output: true
+         function test_getClientId()
+           {
+               //Arrange
+               $client_name = "Monica";
+               $client_id = 1;
+               $test_client = new Client($client_name, 1, $client_id);
+
+               //Act
+               $result = $test_client->getClientId();
+
+               //Assert
+               $this->assertEquals(true, is_numeric($result));
+           }
 
 
 
@@ -82,28 +82,35 @@
           }
 
 
-      //   ////Test 4: test_getAll
-      //   //Desc: check getAll function work
-      //   //Input:  "Monica", "Tom"
-      //   //Output: "Monica", "Tom"
-      //   function test_getAll()
-      //   {
-      //       // Arrange
-      //       $client_name1 = "Monica";
-      //       $client_name2 = "Tom";
-      //       $test_client1 = new Client($client_name1, 1);
-      //       $test_client1->save();
-      //       $test_client2= new Client($client_name2, 2);
-      //       $test_client2->save();
-       //
-      //       //Act
-      //       $result = Client::getAll();
-       //
-      //       //Assert
-      //       $this->assertEquals([$test_client1, $test_client2], $result);
-      //   }
-       //
-       //
+        ////Test 4: test_getAll
+        //Desc: check getAll function work
+        //Input:  "Monica", "Tom"
+        //Output: "Monica", "Tom"
+        function test_getAll()
+        {
+            // Arrange
+            //Arrange
+            $stylist_name = "Monica";
+            $test_stylist = new Stylist($stylist_name);
+            $test_stylist->save();
+
+
+            $client_name1 = "John";
+            $client_name2 = "Erika";
+            $stylist_id = $test_stylist->getStylistId();
+            $test_client1 = new Client($client_name1, $stylist_id);
+            $test_client1->save();
+            $test_client2= new Client($client_name2, $stylist_id);
+            $test_client2->save();
+
+            //Act
+            $result = Client::getAll();
+
+            //Assert
+            $this->assertEquals([$test_client1, $test_client2], $result);
+        }
+
+
       //  ///Test 5: test_deleteAll()    *don't forget tearDown!!
       //   //Desc: delete all records from client table
       //   //Input:  "Monica", "Tom"
