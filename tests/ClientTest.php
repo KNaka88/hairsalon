@@ -78,6 +78,22 @@
         //Desc: check getAll function work
         //Input:  "Monica", "Tom"
         //Output: "Monica", "Tom"
+        function test_getAll()
+        {
+            // Arrange
+            $client_name1 = "Monica";
+            $client_name2 = "Tom";
+            $test_client1 = new Client($client_name1);
+            $test_client1->save();
+            $test_client2= new Client($client_name2);
+            $test_client2->save();
+
+            //Act
+            $result = Client::getAll();
+
+            //Assert
+            $this->assertEquals([$test_client1, $test_client2], $result);
+        }
 
 
        ///Test 5: test_deleteAll()    *don't forget tearDown!!
