@@ -23,7 +23,7 @@
     });
 
     $app->post("/add-stylist", function() use ($app) {
-        $new_stylist = new Stylist($_POST['stylist_name']);
+        $new_stylist = new Stylist(filter_var($_POST['stylist_name'], FILTER_SANITIZE_MAGIC_QUOTES));
         $new_stylist->save();
         return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
     });
