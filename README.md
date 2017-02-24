@@ -37,7 +37,7 @@ you can install MAMP [from this link](https://www.mamp.info/en/).
 2. CREATE DATABASE hair_salon;
 3. USE hair_salon;
 4. CREATE TABLE stylists (stylist_id serial PRIMARY KEY, stylist_name VARCHAR (255));
-5. CREATE TABLE clients (client_id serial PRIMARY KEY, client_name VARCHAR (255));
+5. CREATE TABLE clients (client_id serial PRIMARY KEY, client_name VARCHAR (255), stylist_id INT);
 
 #### If you would like to see the result of PHPUnit tests, create database _hair_salon_test_
 #### You can create and manage the database more easily through phpMyAdmin (localhost:8888/phpmyadmin/)
