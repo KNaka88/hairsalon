@@ -19,13 +19,12 @@
     Request::enableHttpMethodParameterOverride();
 
 
-    //RENDER INDEX PAGE
+    //INDEX PAGE
     $app['debug'] = true;
     $app->get("/", function() use ($app){
         return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
     });
-
-    //RENDER INDEX PAGE (Stylist added)
+    //INDEX PAGE (Stylist added)
     $app->post("/", function() use ($app) {
         $new_stylist = new Stylist(filter_var($_POST['stylist_name'], FILTER_SANITIZE_MAGIC_QUOTES));
         $new_stylist->save();
@@ -34,18 +33,28 @@
 
 
 
-    //RENDER EDIT PAGE (for STYLIST)
+    //INDEX-GET EDIT PAGE (for STYLIST)
     $app->get("/stylist/{stylist}-{id}/edit", function($stylist, $id) use ($app) {
       $stylist = Stylist::find($id);
       return $app['twig']->render('stylist-edit.html.twig', array('stylist' => $stylist));
     });
-
+    //INDEX-PATCH EDIT PAGE (for STYLIST)
     $app->patch("/stylist/{stylist}-{id}/edit", function($stylist, $id) use ($app) {
       $change_stylist_name = $_POST['change_stylist_name'];
       $stylist = Stylist::find($id);
       $stylist->update($change_stylist_name);
       return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
     });
+
+
+    //INDEX_GET DELETE PAGE (for STYLIST)
+    $app->get("/stylist/{stylist}-{id}/deleted", function($stylist, $id) use ($app) {
+        $stylist = Stylist::find($id);
+        $stylist->delete();
+
+        return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
+    });
+
 
 
 
