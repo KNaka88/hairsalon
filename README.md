@@ -10,10 +10,15 @@
 
 ## Specifications
 
-
-!!UPDATE SPECS!!
-
-
+|Behavior|Input|Output|
+|--------|-----|------|
+| When user type Stylist's name and click Add, the Stylist page will be created | "James"  | "James" (on Current Stylists area) |
+| User can select specific stylist and can add client | "Thomas" | "Thomas"|
+| User can edit stylist name | "James" -> "Miki" | "Miki" |
+| User can delete stylist name | "Miki" | "" |
+| User can select specific stylist and edit client name. | "Thomas" -> "Lucas" | "Lucas" |
+| User can select specific stylist and delete specific client name. | "Lucas" | "" |
+| User can delete all stylists and clients | click "Delete All" and Choose Yes 2 times | "" |
 
 ## Setup/Installation Requirements
 1. Clone this repository.
