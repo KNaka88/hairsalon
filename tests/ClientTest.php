@@ -14,10 +14,10 @@
 
     class ClientTest extends PHPUnit_Framework_TestCase
     {
-        // protected function tearDown()
-        //  {
-        //    Client::deleteAll();
-        //  }
+        protected function tearDown()
+         {
+           Client::deleteAll();
+         }
 
         ///Test 1: test_getClientName
         //Desc: check class Client is made and can call name by getClientName()
@@ -59,6 +59,19 @@
          //Desc: check intance of Client saved on hair_salon_test database
          //Input:  "Monica"
          //Output: "Monica"
+         function test_save()
+          {
+              //Arrange
+              $client_name = "Monica";
+              $test_client = new Client($client_name);
+
+              //Act
+              $test_client->save();
+
+              //Assert
+              $result = Client::getAll();
+              $this->assertEquals($test_client, $result[0]);
+          }
 
 
         ////Test 4: test_getAll

@@ -28,17 +28,28 @@
 
         function save()
         {
+            $GLOBALS['DB']->exec("INSERT INTO clients (client_name) VALUES ('{$this->getClientName()}');");
 
+            $this->client_id = $GLOBALS['DB']->lastInsertId();
         }
 
-        function getAll()
+        static function getAll()
         {
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");
+            $clients = array();
 
+            foreach($returned_clients as $client){
+              $client_name = $client['client_name'];
+              $client_id = $client['client_id'];
+              $new_client = new Client($client_name, $client_id);
+              array_push($clients, $new_client);
+            }
+            return $clients;
         }
 
-        function deleteAll()
+        static function deleteAll()
         {
-
+            $GLOBALS['DB']->exec("DELETE FROM clients;");
         }
 
         static function find($search_id)
@@ -57,4 +68,3 @@
         {
 
         }
-  
