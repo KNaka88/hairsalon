@@ -100,6 +100,23 @@
         //Desc: delete all records from client table
         //Input:  "Monica", "Tom"
         //Output: ""
+        function test_deleteAll()
+        {
+            // Arrange
+            $client_name1 = "Monica";
+            $client_name2 = "Tom";
+            $test_client1 = new Client($client_name1);
+            $test_client1->save();
+            $test_client2= new Client($client_name2);
+            $test_client2->save();
+
+            //Act
+            Client::deleteAll();
+            $result = Client::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
 
 
         ///Test 6 test_find()
