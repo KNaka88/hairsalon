@@ -6,25 +6,32 @@
     <title>Stylist: {{stylist.getStylistName}}</title>
   </head>
   <body>
-    <h1>{{stylist.getStylistName}}'s Clients:</h1>
+    <div>
+      <main>
+        <h1>{{stylist.getStylistName}}'s Clients:</h1>
 
-    {% if clients is not empty %}
-      <ul>
-      {% for client in clients %}
-        <li>{{client.getClientName}}</li>
-      {%endfor %}
-      </ul>
-    {% else %}
-      <p>{{stylist.getStylistName}} does not have any clients yet... :(</p>
-    {% endif %}
+        {% if clients is not empty %}
+          <ul>
+          {% for client in clients %}
+            <li>{{client.getClientName}}</li>
+          {%endfor %}
+          </ul>
+        {% else %}
+          <p>{{stylist.getStylistName}} does not have any clients yet... :(</p>
+        {% endif %}
 
-    <form action="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}" method="post">
-      <div class="form-group">
-        <label for="client_name">Type Client's Name</label>
-        <input type="text" class="form-control" name="client_name" id="client_name" placeholder="Client's Name" />
-      </div>
-      <button class="btn btn-primary btn-block" type="submit">Add</button>
-    </form>
+        <form action="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}" method="post">
+          <div class="form-group">
+            <label for="client_name">Type Client's Name</label>
+            <input type="text" class="form-control" name="client_name" id="client_name" placeholder="Client's Name" />
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Add</button>
+        </form>
 
+        <a href="/"><button class="btn btn-success">Back to Home</button></a>
+
+
+      </main>
+    </div>
   </body>
 </html>

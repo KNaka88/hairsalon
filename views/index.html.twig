@@ -24,12 +24,17 @@
         {% if stylists is not empty %}
           <ul>
             {% for stylist in stylists %}
-              <li><a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}">{{ stylist.getStylistName }}</a></li>
+              <li>
+                <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}">{{ stylist.getStylistName }}</a>
+                <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/edit"><button class="btn btn-warning">Edit</button></a>
+              </li>
             {% endfor %}
           </ul>
         {% else %}
         <p>No stylists</p>
         {% endif %}
+
+
 
       </div>
     </main>
