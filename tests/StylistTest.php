@@ -14,10 +14,10 @@
 
     class StylistTest extends PHPUnit_Framework_TestCase
     {
-        // protected function tearDown()
-        //  {
-        //    Stylist::deleteAll();
-        //  }
+        protected function tearDown()
+         {
+           Stylist::deleteAll();
+         }
 
         ///Test 1: test_getStylistName
         //Desc: check class Stylist is made and can call name by getStylistName()
@@ -82,7 +82,22 @@
         //Desc: check getAll function work
         //Input:  "Monica", "Tom"
         //Output: "Monica", "Tom"
+        function test_getAll()
+        {
+            // Arrange
+            $stylist_name1 = "Monica";
+            $stylist_name2 = "Tom";
+            $test_stylist1 = new Stylist($stylist_name1);
+            $test_stylist1->save();
+            $test_stylist2= new Stylist($stylist_name2);
+            $test_stylist2->save();
 
+            //Act
+            $result = Stylist::getAll();
+
+            //Assert
+            $this->assertEquals([$test_stylist1, $test_stylist2], $result);
+        }
 
 
        ///Test 5: test_deleteAll()    *don't forget tearDown!!

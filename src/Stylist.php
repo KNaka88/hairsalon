@@ -47,9 +47,9 @@
             return $stylists;
         }
 
-        function deleteAll()
+        static function deleteAll()
         {
-
+            $GLOBALS['DB']->exec("DELETE FROM stylists;");
         }
 
         static function find($search_id)
