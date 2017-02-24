@@ -145,6 +145,19 @@
         //desc: update the client_name
         //Input:  "Monica", "Tom"
         //Output: "Monica (object)"
+        function test_update()
+        {
+            // Arrange
+            $client_name = "Monica";
+            $new_client_name = "Tom";
+            $test_client = new Client($client_name);
+
+            // Act
+            $test_client->update($new_client_name);
+
+            // Assert
+            $this->assertEquals($new_client_name, $test_client->getClientName());
+        }
 
 
         ///Test 8 test_delete()
