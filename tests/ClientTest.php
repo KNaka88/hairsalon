@@ -19,29 +19,40 @@
         //    Client::deleteAll();
         //  }
 
-
-
         ///Test 1: test_getClientName
         //Desc: check class Client is made and can call name by getClientName()
         //Input: "Monica"
         //Output: "Monica"
-    function test_getClientName()
-     {
-         //Arrange
-         $client_name = "Monica";
-         $test_client = new Client($client_name);
+        function test_getClientName()
+         {
+             //Arrange
+             $client_name = "Monica";
+             $test_client = new Client($client_name);
 
-         //Act
-         $result = $test_client->getClientName();
+             //Act
+             $result = $test_client->getClientName();
 
-         //Assert
-        $this->assertEquals($client_name, $result);
-     }
+             //Assert
+            $this->assertEquals($client_name, $result);
+         }
 
-       ////Test 2: test_getClientId
-       //Desc: check class Client is made and check getClientId() is numeric or not
-       //Input: "Monica", "1"
-       //Output: true
+         ////Test 2: test_getClientId
+         //Desc: check class Client is made and check getClientId() is numeric or not
+         //Input: "Monica", "1"
+         //Output: true
+         function test_getClientId()
+           {
+               //Arrange
+               $client_name = "Monica";
+               $client_id = 1;
+               $test_client = new Client($client_name, $client_id);
+
+               //Act
+               $result = $test_client->getClientId();
+
+               //Assert
+               $this->assertEquals(true, is_numeric($result));
+           }
 
 
          ////Test 3: test_save
