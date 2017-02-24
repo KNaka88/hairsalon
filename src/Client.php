@@ -65,8 +65,9 @@
             $client = $GLOBALS['DB']->query("SELECT * FROM clients WHERE client_id = {$search_id};");
             foreach($client as $client_result){
                 $client_name_result = $client_result['client_name'];
+                $stylist_id_result = $client_result['stylist_id'];
                 $client_id_result = $client_result['client_id'];
-                return new Client($client_name_result, $client_id_result);
+                return new Client($client_name_result, $stylist_id_result, $client_id_result);
             }
         }
 

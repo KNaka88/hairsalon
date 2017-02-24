@@ -138,27 +138,32 @@
         }
 
 
-      //   ///Test 6 test_find()
-      //   //desc: find matched indexes by using id
-      //   //Input:  "Monica", "Tom"
-      //   //Output: "Monica (object)"
-      //   function test_find()
-      //   {
-      //       //Arrange
-      //       $client_name1 = "Monica";
-      //       $client_name2 = "Tom";
-      //       $test_client1 = new Client($client_name1, 1);
-      //       $test_client2 = new Client($client_name2, 2);
-      //       $test_client1->save();
-      //       $test_client2->save();
-       //
-      //       //Act
-      //       $result = Client::find($test_client1->getClientId());
-       //
-      //       //Assert
-      //       $this->assertEquals($test_client1, $result);
-      //   }
-       //
+        ///Test 6 test_find()
+        //desc: find matched indexes by using id
+        //Input:  "Monica", "Tom"
+        //Output: "Monica (object)"
+        function test_find()
+        {
+            // Arrange
+            $stylist_name = "Monica";
+            $test_stylist = new Stylist($stylist_name);
+            $test_stylist->save();
+
+            $client_name1 = "John";
+            $client_name2 = "Erika";
+            $stylist_id = $test_stylist->getStylistId();
+            $test_client1 = new Client($client_name1, $stylist_id);
+            $test_client1->save();
+            $test_client2= new Client($client_name2, $stylist_id);
+            $test_client2->save();
+
+            //Act
+            $result = Client::find($test_client1->getClientId());
+
+            //Assert
+            $this->assertEquals($test_client1, $result);
+        }
+
        //
       //   ///Test 7 test_update()
       //   //desc: update the client_name
