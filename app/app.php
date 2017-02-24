@@ -54,6 +54,19 @@
 
         return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
     });
+    //INDEX-GET DELETEALL PAGE (for Everything)
+    $app->get("/deleteall", function() use ($app) {
+        return $app['twig']->render('deleteall.html.twig');
+    });
+    //INDEX-GET DELETEALL PAGE For 1st click
+    $app->get("/delete/yes", function() use ($app) {
+        return $app['twig']->render('deleteall-yes.html.twig');
+    });
+    //INDEX-GET DELETEALL PAGE 2nd click (FOR SURE)
+    $app->get("/delete/yes/forsure", function() use ($app) {
+        Stylist::deleteAll();
+        return $app['twig']->render('index.html.twig', array("stylists" => Stylist::getAll()));
+    });
 
 
 
