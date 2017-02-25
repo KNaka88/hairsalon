@@ -14,16 +14,26 @@ h1 {
   margin-bottom: 5vh;
 }
 
+h2 {
+  font-family: 'Source Serif Pro', serif;
+  text-align: center;
+  margin-top: 5vh;
+}
+
 div .jumbotron {
-  margin-top: 20vh;
+  margin-top: 10vh;
   position: relative;
   min-height: 60vh;
+  max-height: 90vh;
   background-color: #efefef;
   opacity: 0.9;
 }
 
 .btn {
-  position: relative;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -38,8 +48,24 @@ ul {
 }
 
 li {
+  font-size: 2.3rem;
+  text-align: center;
   display: inline-block;
+  width: 100%;
   height: 5vh;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1vh;
+}
+
+.btn.select {
+  width: 50%;
+}
+
+.btn-danger {
+  background-color: #873838;
+}
+
+.btn-warning {
+  background-color: #826242;
 }

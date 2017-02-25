@@ -11,6 +11,7 @@
     <div id="#page-wrap" class="container">
       <div class='jumbotron'>
         <h1>Manage Stylists</h1>
+        <h2>Add Stylists</h2>
         <form action="/" method="post">
           <div class="form-group">
             <label for="stylist_name">Type Stylist Name</label>
@@ -26,8 +27,8 @@
               <div class='panel'>
                 <li>
                   <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}">{{ stylist.getStylistName }}</a>
-                  <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/edit"><button class="btn btn-warning">Edit</button></a>
-                  <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/deleted"><button class="btn btn-danger">Delete</button></a>
+                  <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/edit"><button class="btn btn-warning select">Edit</button></a>
+                  <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/deleted"><button class="btn btn-danger select">Delete</button></a>
                 </li>
               <div>
             {% endfor %}
