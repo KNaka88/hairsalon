@@ -1,3 +1,45 @@
+body {
+  background: url(/../img/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
 h1 {
-  color: red;
+  font-family: 'Source Serif Pro', serif;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+div .jumbotron {
+  margin-top: 20vh;
+  position: relative;
+  min-height: 60vh;
+  background-color: #efefef;
+  opacity: 0.9;
+}
+
+.btn {
+  position: relative;
+}
+
+
+.form-group {
+  margin-bottom: 5vh;
+
+}
+
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+  height: 5vh;
+  margin-left: auto;
+  margin-right: auto;
 }

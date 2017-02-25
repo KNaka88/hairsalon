@@ -3,15 +3,14 @@
   <head>
     <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Source+Serif+Pro" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>Hair Salon Management Page</title>
   </head>
   <body>
-    <header>
-    </header>
-    <main>
-      <div class="container">
-        <h1>Manege Stylists</h1>
+    <div id="#page-wrap" class="container">
+      <div class='jumbotron'>
+        <h1>Manage Stylists</h1>
         <form action="/" method="post">
           <div class="form-group">
             <label for="stylist_name">Type Stylist Name</label>
@@ -24,22 +23,20 @@
         {% if stylists is not empty %}
           <ul>
             {% for stylist in stylists %}
-              <li>
-                <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}">{{ stylist.getStylistName }}</a>
-                <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/edit"><button class="btn btn-warning">Edit</button></a>
-                <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/deleted"><button class="btn btn-danger">Delete</button></a>
-              </li>
+              <div class='panel'>
+                <li>
+                  <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}">{{ stylist.getStylistName }}</a>
+                  <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/edit"><button class="btn btn-warning">Edit</button></a>
+                  <a href="/stylist/{{stylist.getStylistName}}-{{stylist.getStylistId}}/deleted"><button class="btn btn-danger">Delete</button></a>
+                </li>
+              <div>
             {% endfor %}
           </ul>
-          <a href="/deleteall"><button class="btn btn-danger">Delete All</button></a>
+          <a href="/deleteall"><button class="btn btn-danger btn-block">Delete All</button></a>
         {% else %}
         <p>No stylists</p>
         {% endif %}
-
-
       </div>
-    </main>
-    <footer>
-    </footer>
+    </div>
   </body>
 </html>
